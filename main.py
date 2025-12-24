@@ -18,4 +18,28 @@ def get_all_products():
 
 @app.get("/prodict/{id}")
 def get_product_by_id(id: int):
-    return products[id]
+    for product in products:
+        if product == products[id]:
+            return products[id]
+    return "Product Ont found"
+
+@app.post("/product")
+def add_product(request: Products):
+    products.append(request)
+    return products
+
+@app.put("/product/{id}")
+def update_product(id: int, product: Products):
+    for i in range(len(products)):
+        if products[i].id == id:
+            products[i] = product
+            return "Product update succesfully" 
+    return "Product Not found"
+
+@app.delete("/product")
+def delete_product(id: int):
+    for product in products:
+        if product.id == id:
+            del product
+            return "Product deleted"
+    return "Product Not found"
