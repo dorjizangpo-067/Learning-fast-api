@@ -43,3 +43,5 @@ def delete_product(id: int):
             del product
             return "Product deleted"
     return "Product Not found"
+
+# postgresql://postgres:IEQS64fTTKCWr6WN@db.umkfsgrvznsrcdsvgdzg.supabase.co:5432/postgres
